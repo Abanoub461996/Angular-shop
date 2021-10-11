@@ -1,0 +1,10 @@
+<div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let movie of moviesList" class="col">
+      <app-movie-card
+        [movieItem]="movie"
+        (sendMovie)="receiveMovie($event)"
+      ></app-movie-card>
+    </div>
+  </div>
+</div>
