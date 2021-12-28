@@ -1,0 +1,17 @@
+<div class="container p-2 " style="background-color: #e3f2fd; ">
+  <h3>Your Wish List : {{wishlistArray.length}}</h3>
+  <div *ngFor="let product of wishlistArray">
+    <div class="row cardItem">
+      <figure class="wishlist-img col-5 p-1">
+        <img class="card-img" [src]="product?.image" alt="..." />
+      </figure>
+
+      <div class="col-5 p-3">
+        <h5 class="card-title mt-5 fs-6 fw-bold">{{ product?.title}} </h5>
+        
+      </div>
+      <button class="p-2 mt-5 col-2 h-25 btn btn-danger" (click)="removeWishListItem(product)">x</button>
+    </div>
+     
+  </div>
+</div>

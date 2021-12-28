@@ -1,0 +1,40 @@
+<form #loginForm='ngForm'>
+  <div class="mb-3">
+    <label for="loginEmail" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+     name="loginFormEmail"
+      #loginFormEmail='ngModel' [(ngModel)]="loginForm.loginFormEmail"
+      pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required minlength="3"
+      maxlength="50">
+    <div *ngIf="loginFormEmail.touched && !loginFormEmail.valid">
+      <small class="text-danger" *ngIf="loginFormEmail.errors.required">
+        This field is required
+      </small>
+      <small class="text-danger" *ngIf="loginFormEmail.errors.minlength">
+        Min. Length is 3
+      </small>
+      <small class="text-danger" *ngIf="loginFormEmail.errors.pattern">
+        please match the email format -> example : example@sth.sth
+      </small>
+    </div>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="loginFormPassword"
+      #loginFormPassword='ngModel' [(ngModel)]="loginForm.loginFormPassowrd" required minlength="8" maxlength="50">
+  </div>
+  <div *ngIf="loginFormPassword.touched && !loginFormPassword.valid">
+    <small class="text-danger" *ngIf="loginFormPassword.errors.required">
+      This field is required
+    </small>
+    <small class="text-danger" *ngIf="loginFormPassword.errors.minlength">
+      8 characters minimum
+    </small>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="loginFormSubmit()">Submit</button>
+</form>
+<p>Not registered yet ? <a routerLink="../register">register</a></p>

@@ -1,0 +1,19 @@
+
+:root {
+  --main-color: #66BFBF;
+  --white: #fff;
+  --colored: #66BFB;
+  --text-1: #11999E;
+  --text-2: #EAF6F6;
+  --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+
+html {
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--colored);
+  color: var(--text-1);
+}

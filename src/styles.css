@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+    width:95%;
+    margin: 0 auto;
+}
+:root {
+  --main-color: #66BFBF;
+  --white: #fff;
+  --colored: #66BFB;
+  --text-1: #11999E;
+  --text-2: #EAF6F6;
+  --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+
+html {
+  font-size: 13px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--colored);
+  color: var(--text-1);
+}

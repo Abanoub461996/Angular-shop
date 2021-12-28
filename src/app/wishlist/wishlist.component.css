@@ -1,0 +1,16 @@
+.cardItem {
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--colored);
+  border: 1.5px solid var(--main-color);
+  border-radius: 25px;
+  padding-top: 1em;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.wishlist-img {
+    width:80px;
+    height:100px;
+}

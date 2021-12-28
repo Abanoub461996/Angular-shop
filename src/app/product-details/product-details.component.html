@@ -1,0 +1,25 @@
+<div class="container my-5">
+  
+    <div>
+      <div class="row">
+        <figure class="col-6">
+          <img class="card-img" [src]="product.image" alt="..." />
+        </figure>
+
+        <div class="card-body col-6 pt-5 mt-5">
+          <h5 class="card-title">{{ product.title | uppercase }}</h5>
+          <p class="card-text">
+            {{ product.price | currency :'CAD':'L.E '}}
+          </p>
+          <p class="card-text">{{ product.category }}</p>
+          <p class="card-text">rate : {{ product.rating.rate }} </p>
+          <p class="card-text">rated by : {{ product.rating.count }} users</p>
+          <p>{{product.description}}</p>
+
+          <button class="btn btn-primary">Add To Cart</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+

@@ -1,0 +1,138 @@
+<p> Old register</p>
+<form class="row g-3 m-2" [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+  <!-- Full Name -->
+  <div class="col-12">
+    <label for="inputName" class="form-label">Name</label>
+    <input type="text" class="form-control" id="inputName" name="registerName" placeholder="Abanoub Ragaay"
+      formControlName="registerName">
+  </div>
+  <!-- Full Name Handling -->
+  <div *ngIf="
+        registerFormControls.registerName.touched &&
+        !registerFormControls.registerName.valid
+      ">
+    <small class="text-danger" *ngIf="registerFormControls.registerName.errors.required">
+      This field is required
+    </small>
+    <small class="text-danger" *ngIf="registerFormControls.registerName.errors.minlength">
+      Min. Length is 3
+    </small>
+  </div>
+
+  <!-- UserName -->
+  <div class="col-12">
+    <label for="inputUserName" class="form-label">UserName</label>
+    <input type="text" class="form-control" id="inputUserName" placeholder="AbanoubR124" name="registerUser"
+      formControlName="registerUser">
+  </div>
+  <!-- User Name Error -->
+  <div *ngIf="
+        registerFormControls.registerUser.touched &&
+        !registerFormControls.registerUser.valid
+      ">
+    <small class="text-danger" *ngIf="registerFormControls.registerUser.errors.required">
+      This field is required
+    </small>
+    <small class="text-danger" *ngIf="registerFormControls.registerUser.errors.minlength">
+      Min. Length is 3
+    </small>
+    <small class="text-danger" *ngIf="registerFormControls.registerUser.errors.pattern">
+      No Space Allowed
+    </small>
+  </div>
+
+  <!-- Email -->
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4" placeholder="abanoub@sth.com" name="registerEmail"
+      formControlName="registerEmail">
+  </div>
+  <!-- Email Error Handling -->
+  <div *ngIf="
+        registerFormControls.registerEmail.touched &&
+        !registerFormControls.registerEmail.valid
+      ">
+    <small class="text-danger" *ngIf="registerFormControls.registerEmail.errors.required">
+      This field is required
+    </small>
+    <small class="text-danger ms-4" *ngIf="registerFormControls.registerEmail.errors.minlength">
+      Min. Length is 3
+    </small>
+    <small class="text-danger ms-4" *ngIf="registerFormControls.registerEmail.errors.email">
+      your input doesn't match the email format : example@sth.sth
+    </small>
+  </div>
+
+  <!-- Pass -->
+  <div class="col-md-12">
+    <label for="inputPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword" name="registerPass" formControlName="registerPass">
+  </div>
+  <!-- Pass Error Handling -->
+  <div *ngIf="
+        registerFormControls.registerPass.touched &&
+        !registerFormControls.registerPass.valid
+      ">
+    <small class="text-danger" *ngIf="registerFormControls.registerPass.errors.required">
+      This field is required
+    </small>
+    <small class="text-danger" *ngIf="registerFormControls.registerPass.errors.pattern">
+      - password length not less
+      than 8 characters , contains at least one
+      lowercase , one uppercase , at least one digit
+      and special character [ example : *@%$# ] ]
+    </small>
+  </div>
+
+  <!--Confirm Pass -->
+  <div class="col-md-11">
+    <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="inputConfirmPassword" name="registerConfirmPass"
+      formControlName="registerConfirmPass">
+
+    <!--confirm Pass Error Handling -->
+
+    <small class="text-danger w-75"
+      *ngIf="registerForm.get('registerConfirmPass')?.value&&registerForm.errors?.mismatch">
+      it has to match the Password
+    </small>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </div>
+
+  <div formArrayName="items" *ngFor="let item of registerForm.get('items')['controls']; let i = index;">
+    <div [formGroupName]="i">
+      <div class="col-md-11">
+        <label class="form-label">Address {{i+1}}</label>
+        <input class="form-control" formControlName="registerAddress" placeholder="adress">
+      </div>
+      <!-- adress error handler -->
+      <!-- <div *ngIf="
+       registerForm.get('items').registerAddress.touched &&
+        !registerForm.get('items').registerAddress.valid
+      ">
+        <small class="text-danger ms-4" *ngIf="registerForm.get('items').registerAddress.errors.pattern">
+          only words and you might include a number or #
+        </small>
+      </div> -->
+
+      <div class="col-md-11">
+        <label class="form-label">Street</label>
+        <input class="form-control" formControlName="street" placeholder="street name">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Country</label>
+        <input class="form-control" formControlName="country" placeholder="country">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">City</label>
+        <input class="form-control" formControlName="city" placeholder="city">
+      </div>
+    </div>
+  </div>
+  <button type="button" (click)="addItem()">Add Another Adress</button>
+</form>
+<p>already have an account ? <a routerLink="../login">logIn</a></p>
+

@@ -1,0 +1,24 @@
+
+<div class="card h-100 cardItem mx-3">
+  <figure class="card-img-top" (click)="addToWishlist(product)">
+     <img class="card-img" [src]="product.image" alt="..." />
+  </figure>
+ 
+  <div class="card-body" >
+    <h5 class="card-title ">{{ product.title}}</h5>
+    <p class="card-text price fw-bold">
+      {{ product.price | currency :'EGY '}}
+    </p>
+    <div class ="row">
+      <p class="card-text col-5">{{ product.category }}</p>
+      <p class="card-text col-5 fw-bold">rate : {{ product.rating.rate }} </p>
+    </div>
+    <p class="card-text">rated by : {{ product.rating.count }} users</p>
+    
+    <p class="description">{{product.description}}</p>
+    
+    <button class="btn btn-primary" (click)="sendDataToParent()">View Details</button>
+    <button class="btn btn-dark ms-3" (click)="addToCart(product)">Add To Cart</button>
+    <!-- <button class="btn btn-primary" (click)="addToWishlist(product)"><i class="fas fa-star"></i></button> -->
+  </div>
+</div>

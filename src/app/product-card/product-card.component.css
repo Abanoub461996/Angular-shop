@@ -1,0 +1,41 @@
+.card-img{
+    height: 100%;
+    width: 100%;
+}
+figure{
+    max-height: 300px;
+}
+section {
+  padding: 5rem 0;
+
+}
+
+h5 {
+  font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1em;
+  color: var(--main-color);
+}
+p{
+    font-style: italic;
+    font-size: .8rem;
+    margin-bottom: .5em;
+    color: var(--main-color);
+}
+.price {
+    font-size: .8rem;
+}
+
+.cardItem {
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--colored);
+  border: 1px solid;
+  border: 3px solid var(--main-color);
+  border-radius: 25px;
+  padding-top: 1em;
+}
+/* .description{
+  
+} */
